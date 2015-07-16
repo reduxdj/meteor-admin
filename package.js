@@ -1,8 +1,8 @@
 Package.describe({
-  name: "yogiben:admin",
+  name: "reduxfj:admin",
   summary: "A complete admin dashboard solution",
   version: "1.2.1",
-  git: "https://github.com/yogiben/meteor-admin"
+  git: "https://github.com/reduxdj/meteor-admin"
 });
 
 Package.on_use(function(api){

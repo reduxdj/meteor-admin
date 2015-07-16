@@ -75,7 +75,7 @@ Meteor.methods
 	adminCheckAdmin: ->
 		check arguments, [Match.Any]
 		user = Meteor.users.findOne(_id:this.userId)
-		if this.userId and !Roles.userIsInRole(this.userId, ['admin']) and (user.emails.length > 0)
+		if this.userId and !Roles.userIsInRole(this.userId, ['admin']) and (user?.emails?.length > 0)
 			email = user.emails[0].address
 			if typeof Meteor.settings.adminEmails != 'undefined'
 				adminEmails = Meteor.settings.adminEmails
@@ -90,6 +90,11 @@ Meteor.methods
 			else if this.userId == Meteor.users.findOne({},{sort:{createdAt:1}})._id
 				console.log 'Making first user admin: ' + email
 				Roles.addUsersToRoles this.userId, ['admin']
+		else if this.userId == Meteor.users.findOne({},{sort:{createdAt:1}})?._id
+				console.log 'Making first user admin: ' + user.username
+				Roles.addUsersToRoles this.userId, ['admin']
+		else
+				console.log "There's no System User - can't bootstrap an admin"
 
 	adminAddUserToRole: (_id,role)->
 		check arguments, [Match.Any]

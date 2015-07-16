@@ -44,6 +44,11 @@ AdminTables.Users = new Tabular.Table
 	collection: Meteor.users
 	columns: _.union [
 		{
+			data: 'username'
+			title: 'Username'
+
+		}
+		{
 			data: '_id'
 			title: 'Admin'
 			# TODO: use `tmpl`
@@ -55,7 +60,7 @@ AdminTables.Users = new Tabular.Table
 			data: 'emails'
 			title: 'Email'
 			render: (value) ->
-				value[0].address
+				value?[0]?.address or 'No email'
 			searchable: true
 		}
 		{
