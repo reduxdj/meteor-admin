@@ -1,7 +1,7 @@
 Package.describe({
   name: "reduxfj:admin",
   summary: "A complete admin dashboard solution",
-  version: "1.2.1",
+  version: "1.2.2",
   git: "https://github.com/reduxdj/meteor-admin"
 });
 
