@@ -44,9 +44,18 @@ AdminTables.Users = new Tabular.Table
 	collection: Meteor.users
 	columns: _.union [
 		{
-			data: 'username'
-			title: 'Username'
-
+			data: 'profile'
+			title: 'fullName'
+			render: (value) ->
+				value?.fullName
+			searchable: true
+		}
+		{
+			data: 'emails'
+			title: 'Email'
+			render: (value) ->
+				value?[0]?.address or 'No email'
+			searchable: true
 		}
 		{
 			data: '_id'
@@ -56,13 +65,7 @@ AdminTables.Users = new Tabular.Table
 				$(node).html(Blaze.toHTMLWithData Template.adminUsersIsAdmin, {_id: cellData}, node)
 			width: '40px'
 		}
-		{
-			data: 'emails'
-			title: 'Email'
-			render: (value) ->
-				value?[0]?.address or 'No email'
-			searchable: true
-		}
+
 		{
 			data: 'emails'
 			title: 'Mail'
