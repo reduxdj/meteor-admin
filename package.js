@@ -1,7 +1,7 @@
 Package.describe({
   name: "reduxfj:admin",
   summary: "A complete admin dashboard solution",
-  version: "1.2.3",
+  version: "1.2.4",
   git: "https://github.com/reduxdj/meteor-admin"
 });
 
@@ -30,7 +30,7 @@ Package.on_use(function(api){
     ],
     both);
 
-  api.use(['less','session','jquery','templating'],'client')
+  api.use(['less@2.5.1','session','jquery','templating'],'client')
 
   api.use(['email'],'server')
 
